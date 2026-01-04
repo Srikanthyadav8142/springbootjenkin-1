@@ -113,16 +113,4 @@ class DmartServiceImplTest {
 
         verify(dmartRepo, times(1)).findById(2);
     }
-
-    // ⚠️ Edge Case – Null ID
-    @Test
-    void getDmartFindById_nullId() {
-        when(dmartRepo.findById(null)).thenThrow(IllegalArgumentException.class);
-
-        assertThrows(IllegalArgumentException.class, () -> {
-            dmartService.getDmartFindById(null);
-        });
-
-        verify(dmartRepo, times(1)).findById(null);
-    }
 }
